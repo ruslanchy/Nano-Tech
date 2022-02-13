@@ -12,15 +12,10 @@ namespace Nano_Tech.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class order
+    public partial class adminn
     {
-        public int oid { get; set; }
-        public Nullable<int> proid_fk { get; set; }
-        public Nullable<int> uid_fk { get; set; }
-        public string odate { get; set; }
-        public int ototal { get; set; }
-    
-        public virtual product product { get; set; }
-        public virtual user user { get; set; }
+        public int adid { get; set; }
+        public string adname { get; set; }
+        public string adpass { get; set; }
     }
 }

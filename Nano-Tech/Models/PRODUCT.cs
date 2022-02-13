@@ -12,23 +12,21 @@ namespace Nano_Tech.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class PRODUCT
+    public partial class product
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public PRODUCT()
+        public product()
         {
-            this.ORDERS = new HashSet<ORDER>();
+            this.orders = new HashSet<order>();
         }
     
-        public int productid { get; set; }
-        public string productname { get; set; }
-        public int productprice { get; set; }
-        public string productsdes { get; set; }
-        public string productldes { get; set; }
-        public string productimage { get; set; }
-        public string productreview { get; set; }
+        public int proid { get; set; }
+        public string proname { get; set; }
+        public string proimage { get; set; }
+        public int proprice { get; set; }
+        public string prodesc { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ORDER> ORDERS { get; set; }
+        public virtual ICollection<order> orders { get; set; }
     }
 }

@@ -1,0 +1,59 @@
+﻿@model Nano_Tech.Models.adminn
+@{
+    Layout = null;
+}
+
+<Doctype>
+    <html>
+    <head>
+
+        <link  rel="stylesheet" type="text/css" href="~/Content/loginstyle.css" />
+    </head>
+    <body>
+        <h2>Admin Login</h2>
+
+
+        @using (Html.BeginForm())
+        {
+            <div class="login">
+                <form id="login" action="" method="post">
+
+
+                    <h5 style="color:red;">@ViewBag.msg</h5>
+                    <label for="uname"><b>Username</b></label>
+                    @*<input type="text" placeholder="Enter Username" name="uname" required>*@
+                    @Html.TextBoxFor(x => x.adname, new { @class = "form-control", @placeholder = "Admin Name", @id = "Uname" })
+                    <span style="color:red">@Html.ValidationMessageFor(x => x.adname)</span>
+
+                    <br />
+                    <label for="psw"><b>Password</b></label>
+                    @*<input type="password" placeholder="Enter Password" name="psw" required>*@
+
+                    @Html.PasswordFor(x => x.adpass, new { @class = "form-control", @placeholder = "Password", @id = "Pass" })
+                    <span style="color:red">@Html.ValidationMessageFor(x => x.adpass)</span>
+
+                    <br />
+                    <div class="row">
+                        <input type="submit" value="Login" id="log" class="btn btn-success" />
+                    </div>
+
+
+                    <div class="form-group">
+                        <p style="color:red">@ViewBag.error</p>
+                    </div>
+                </form>
+            </div>}
+        <script src="~/Scripts/jquery.validate-vsdoc.js"></script>
+        <script src="~/Scripts/jquery.validate.js"></script>
+        <script src="~/Scripts/jquery.validate.min.js"></script>
+        <script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
+        <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+        @section Scripts
+    {
+
+
+            @Scripts.Render("~/bundles/jqueryval")
+        }
+
+    </body>
+</html>

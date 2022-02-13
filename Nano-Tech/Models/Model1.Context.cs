@@ -13,10 +13,10 @@ namespace Nano_Tech.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class NANOTECHEntities1 : DbContext
+    public partial class nanotechfinalEntities : DbContext
     {
-        public NANOTECHEntities1()
-            : base("name=NANOTECHEntities1")
+        public nanotechfinalEntities()
+            : base("name=nanotechfinalEntities")
         {
         }
     
@@ -25,8 +25,10 @@ namespace Nano_Tech.Models
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<CUSTOMER> CUSTOMERs { get; set; }
-        public virtual DbSet<ORDER> ORDERS { get; set; }
-        public virtual DbSet<PRODUCT> PRODUCTS { get; set; }
+        public virtual DbSet<adminn> adminns { get; set; }
+        public virtual DbSet<order> orders { get; set; }
+        public virtual DbSet<product> products { get; set; }
+        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
+        public virtual DbSet<user> users { get; set; }
     }
 }

@@ -12,15 +12,12 @@ namespace Nano_Tech.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class order
+    public partial class sysdiagram
     {
-        public int oid { get; set; }
-        public Nullable<int> proid_fk { get; set; }
-        public Nullable<int> uid_fk { get; set; }
-        public string odate { get; set; }
-        public int ototal { get; set; }
-    
-        public virtual product product { get; set; }
-        public virtual user user { get; set; }
+        public string name { get; set; }
+        public int principal_id { get; set; }
+        public int diagram_id { get; set; }
+        public Nullable<int> version { get; set; }
+        public byte[] definition { get; set; }
     }
 }

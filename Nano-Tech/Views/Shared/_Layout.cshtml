@@ -1,11 +1,14 @@
-﻿<!DOCTYPE html>
+﻿@model Nano_Tech.Controllers.loginController
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - My ASP.NET Application</title>
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="~/Content/mymainlayout.css" rel="stylesheet" />
     <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+
     @*@Styles.Render("~/Content/css")*@
     @Scripts.Render("~/bundles/modernizr")
 
@@ -17,24 +20,81 @@
         <div class="row">
             <div class="col-md-6 col-sm-6 col-xs-6">
                 <div class="logo">
-                    <h1><a href="#">NANO-TECH<span>Shop</span></a></h1>
-                    <p>Online Mobile Shopping </p>
+                    <a><img src="~/Content/projectlogo.png" style="width:100px;height:50px"></a>
+                    <h4><a href="#"> NANO-TECH <span>SHOP</span></a></h4>
+
                 </div>
             </div>
-        </div>
 
-        <div class="row">
             <div class="col-md-6 col-sm-6 col-xs-6">
                 <div class="account">
-                    <h1><a href="#">NANO-TECH<span>Shop</span></a></h1>
-                    <p>Online Mobile Shopping </p>
+                    <ul>
+                        <li>
+                            <div class="dropdown">
+                                
+                                @{ 
+                                    if (@Session["username"] == null)
+                                    {   <h4><span>LOGIN/SIGNUP</span></h4>
+                                        <div class="dropdown-content">
+                                            <p onclick="location.href = '@Url.Action("adminlogin", "adminlogin")'">ADMINLOGIN</p>
+                                            <p onclick="location.href = '@Url.Action("login", "login")'">CUSTOMERLOGIN</p>
+                                            <p onclick="location.href = '@Url.Action("signup", "signup")'">CUSTOMERSIGNUP</p>
+                                        </div>
+                                    }
+                                    else
+                                    {  <h4><span>Hello,@Session["username"]</span></h4>
+                                        <div class="dropdown-content">
+                                            <p >PROFILE</p>
+                                            <p >ORDERS</p>
+                                            <p >LOGOUT</p>
+                                        </div>
+                                        }
+                                    }
+
+                            </div>
+
+                        </li>
+                    </ul>
                 </div>
             </div>
         </div>
+        <div class="row">
+
+            <div class="col-md-12">
+                <div class="nav-menus">
+
+                    <ul class="nav nav-pills">
+                        <li class="active"><a style="border-radius:initial;" href="#">Home</a></li>
+                        <li><a style="border-radius:initial;" href="#">Location</a></li>
+                        <li><a style="border-radius:initial;" href="#">About</a></li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+       
+
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+            <div class="row">
+                <div class="col-md-12 copyright">
+                    <div class="col-md-6 col-sm-6 copyright-left">
+                        <p>&copy;@DateTime.Now.Year - NANO-TECH shop. All rights reserved.</p>
+                    </div>
+                    <div class="col-md-6 col-sm-6 copyright-right"">
+                        <ul class="list-unstyled list-social">
+                            <li><a href="https://www.facebook.com/ruslanchowdhury1998/" target="_blank"><i class="fa fa-facebook-square"></i></a></li>
+                            <li><a href="https://www.facebook.com/supto.rahman.223" target="_blank"><i class="fa fa-facebook-square"></i></a></li>
+                            <li><a href="https://www.instagram.com/ruslan__was_here/" target="_blank"><i class="fa fa-instagram"></i></a></li>
+                            <li><a href="https://www.instagram.com/supto_rahman/" target="_blank"><i class="fa fa-instagram"></i></a></li>
+
+                        </ul> 
+
+
+                    </div>
+                </div>
+            </div>
         </footer>
     </div>
 
