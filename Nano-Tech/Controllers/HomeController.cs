@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-
+using Nano_Tech.Controllers;
+using Nano_Tech.Models;
 namespace Nano_Tech.Controllers
 {
     public class HomeController : Controller
     {
+        nanotechfinalEntities1 db = new nanotechfinalEntities1();
         public ActionResult Index()
         {
             return View();
@@ -25,6 +27,10 @@ namespace Nano_Tech.Controllers
             ViewBag.Message = "Your contact page.";
 
             return View();
+        }
+        public ActionResult allproductpage()
+        {   var productlist = db.products.ToList();
+            return View(productlist);
         }
     }
 }

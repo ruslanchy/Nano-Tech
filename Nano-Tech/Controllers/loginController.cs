@@ -6,11 +6,12 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
+
 namespace Nano_Tech.Controllers
 {
     public class loginController : Controller
     {
-        nanotechfinalEntities db = new nanotechfinalEntities();
+        nanotechfinalEntities1 db = new nanotechfinalEntities1();
         // GET: login
         [HttpGet]
         public ActionResult login()
@@ -18,20 +19,30 @@ namespace Nano_Tech.Controllers
             return View();
         }
         [HttpPost]
-        public ActionResult login(user user1)
+        public ActionResult login(user user1, adminn adm)
         {   
-            user us1 = db.users.Where(x => x.username == user1.username && x.userpass == user1.userpass).FirstOrDefault();
-            if(us1!= null)
+            user us1 = db.users.Where(x => x.useremail == user1.useremail && x.userpass == user1.userpass).FirstOrDefault();
+            adminn ad1 = db.adminns.Where(x=> x.adname == adm.adname && x.adpass == adm.adpass).FirstOrDefault();
+            if (us1!= null)
             {
-                Session["username"]= user1.username;
+                Session["useremail"]= user1.useremail;
                 return RedirectToAction("Index","Home");
             }
             else
             {
-                ViewBag.msg = "Invalid id or password";
+                ViewBag.msg = "Invalid email or password";
             }
             return View();
         }
-        
+        public ActionResult Logout()
+        {
+            Session.Clear();
+            return RedirectToAction("Index", "Home");
+        }
+        public ActionResult editprofile()
+        {   
+            return View();
+        }
+
     }
 }

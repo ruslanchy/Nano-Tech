@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
-
+using Nano_Tech.Controllers;
 namespace Nano_Tech
 {
     public class RouteConfig
@@ -19,5 +19,6 @@ namespace Nano_Tech
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
             );
         }
+       
     }
 }

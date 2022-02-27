@@ -10,7 +10,7 @@ namespace Nano_Tech.Controllers
 {
     public class signupController : Controller
     {
-        nanotechfinalEntities db = new nanotechfinalEntities();
+        nanotechfinalEntities1 db = new nanotechfinalEntities1();
         // GET: signup
         public ActionResult signup()
         {   
@@ -33,5 +33,7 @@ namespace Nano_Tech.Controllers
             ModelState.Clear();
             return RedirectToAction("login","login");
         }
+       
     }
+    
 }

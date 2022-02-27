@@ -18,15 +18,19 @@ namespace Nano_Tech.Models
         public product()
         {
             this.orders = new HashSet<order>();
+            this.catagories = new HashSet<catagory>();
         }
     
         public int proid { get; set; }
         public string proname { get; set; }
         public string proimage { get; set; }
-        public int proprice { get; set; }
+        public string proprice { get; set; }
         public string prodesc { get; set; }
+        public string catid { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<order> orders { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<catagory> catagories { get; set; }
     }
 }

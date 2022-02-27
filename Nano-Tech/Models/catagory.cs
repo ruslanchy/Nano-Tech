@@ -12,12 +12,12 @@ namespace Nano_Tech.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class sysdiagram
+    public partial class catagory
     {
-        public string name { get; set; }
-        public int principal_id { get; set; }
-        public int diagram_id { get; set; }
-        public Nullable<int> version { get; set; }
-        public byte[] definition { get; set; }
+        public int catid { get; set; }
+        public string catname { get; set; }
+        public int proid_fk { get; set; }
+    
+        public virtual product product { get; set; }
     }
 }

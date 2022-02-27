@@ -1,4 +1,6 @@
 ﻿@model Nano_Tech.Models.adminn
+    @using Nano_Tech.Controllers
+
 @{
     Layout = null;
 }
@@ -26,10 +28,11 @@
             @{
                 <div class="user">
                     <button class="btn-danger" href="@Url.Action("Logout", "adminlogin")">LOGOUT</button>
-                </div>}
+                </div>
+            }
         </div>
         @{
-            if (@Session["adname"].Equals("admin") )
+            if (@Session["adname"].Equals("admin"))
             {
                 <div class="sidebar">
                     <ul>
@@ -110,7 +113,42 @@
                 </div>
             }
         }
+        <div class="main">
+            @using (Html.BeginForm("adminadd", "adminlogin", FormMethod.Post))
+            {
+                <div class="login">
+                    <form id="login" action="" method="post">
 
+
+                        <h5 style="color:red;">@ViewBag.msg</h5>
+                        <label for="uname"><b>New Admin Name</b></label>
+                        @*<input type="text" placeholder="Enter Username" name="uname" required>*@
+                        @Html.TextBoxFor(x => x.adname, new { @class = "form-control", @placeholder = "Admin Name", @id = "Uname" })
+                        <span style="color:red">@Html.ValidationMessageFor(x => x.adname)</span>
+
+                        <br />
+                        <label for="psw"><b>Password</b></label>
+                        @*<input type="password" placeholder="Enter Password" name="psw" required>*@
+
+                        @Html.PasswordFor(x => x.adpass, new { @class = "form-control", @placeholder = "Password", @id = "Pass" })
+                        <span style="color:red">@Html.ValidationMessageFor(x => x.adpass)</span>
+
+                        <br />
+                        <div class="row">
+                            <input type="submit" value="Login" id="log" class="btn btn-success" />
+                        </div>
+
+
+                        <div class="form-group">
+                            <p style="color:red">@ViewBag.error</p>
+                        </div>
+                        <div>
+                            @*<h5>Back to home</h5>*@
+                            <a href='@Url.Action("Index", "Home")'>Back to home</a>
+                        </div>
+                    </form>
+                </div>}
+        </div>
 
 
 </body>

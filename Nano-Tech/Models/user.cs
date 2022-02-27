@@ -8,10 +8,10 @@
 //------------------------------------------------------------------------------
 
 namespace Nano_Tech.Models
-{   
+{
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
+    
     public partial class user
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -21,16 +21,9 @@ namespace Nano_Tech.Models
         }
     
         public int userid { get; set; }
-        [Required(ErrorMessage ="Required")]
         public string username { get; set; }
-        [Required(ErrorMessage = "Required")]
-        [DataType(DataType.Password)]
         public string userpass { get; set; }
-        [Required(ErrorMessage = "Required")]
-        [MinLength(11,ErrorMessage ="Minimum length 11 digits")]
         public string usercontact { get; set; }
-        [Required(ErrorMessage = "Enter valid email")]
-        [DataType(DataType.EmailAddress)]
         public string useremail { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

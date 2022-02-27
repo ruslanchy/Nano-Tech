@@ -1,0 +1,196 @@
+﻿
+.container2 {
+    max-width: 2500px;
+    margin: auto;
+    padding-left: 25px;
+    padding-right: 25px;
+}
+
+.container3 {
+    max-width: 2500px;
+    margin: auto;
+    padding-left: 25px;
+    padding-right: 25px;
+    padding-top: 25px;
+}
+
+.container4 {
+    max-width: 2500px;
+    margin: auto;
+    padding-left: 10px;
+    padding-top: 70px;
+}
+
+.container6 {
+    max-width: 2500px;
+    margin: auto;
+    padding-left: 20px;
+    align-items: center center;
+    padding-top: 100px;
+}
+
+.card {
+    padding-left: 50px;
+}
+
+.main_slider {
+    width: 100%;
+    height: 183px;
+    max-height: auto;
+    max-width: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+}
+
+.fill_height {
+    height: 100%;
+}
+
+.main_slider_content {
+    width: 60%;
+}
+
+    .main_slider_content h6 {
+        font-weight: 500;
+        text-transform: uppercase;
+        font-size: 20px;
+    }
+
+    .main_slider_content h1 {
+        margin-top: 50px;
+        color: brown;
+        line-height: 1;
+    }
+
+.red_button {
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: auto;
+    height: 40px;
+    background: #fe4c50;
+    border-radius: 3px;
+    transition: all 0.3s ease;
+}
+
+    .red_button a {
+        display: block;
+        color: white;
+        text-transform: uppercase;
+        font-size: 13px;
+        font-weight: 400;
+        text-align: center;
+        line-height: 40px;
+        width: 100%;
+    }
+
+    .red_button:hover {
+        background: #fe7c7f;
+    }
+
+.shop_now_button {
+    width: 140px;
+    margin-top: 32px;
+}
+
+.banner {
+    width: 100%;
+    margin-top: 30px;
+}
+
+.banner_item {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 265px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+}
+
+.banner_catagory {
+    height: 50px;
+    background: #000000;
+    min-width: 180px;
+    padding-left: 25px;
+    padding-right: 25px;
+}
+
+    .banner_catagory a {
+        display: block;
+        color: #ffffff;
+        text-transform: uppercase;
+        font-size: 22px;
+        font-weight: 600;
+        text-align: center;
+        line-height: 50px;
+        width: 100%;
+    }
+
+        .banner_catagory a:hover {
+            color: darkgray;
+        }
+
+.cart {
+    padding-left: 20px;
+    padding-bottom: 20px;
+    padding-right: 20px;
+    padding-top: 20px;
+}
+
+.wrapper {
+    display: inline-flex;
+}
+
+    .wrapper .static-txt {
+        color: black;
+        font-size: 50px;
+        font-weight: 400;
+    }
+
+    .wrapper .dynamic-txt {
+        margin-left: 1px;
+        height: 50px;
+        line-height: 50px;
+        overflow: hidden;
+    }
+
+.dynamic-txt li {
+    color: brown;
+    list-style: none;
+    font-size: 50px;
+    position: relative;
+    top: 0;
+    animation: slide 6s steps(4) infinite;
+}
+
+@keyframes slide {
+    100% {
+        top: -200px;
+    }
+}
+
+.dynamic-txt li span {
+    position: relative;
+}
+
+    .dynamic-txt li span::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        background: white;
+        border-left: 2px solid brown;
+        animation: typing 1.5s steps(10) infinite;
+    }
+
+@keyframes typing {
+    100% {
+        left: 100%;
+        margin: 0 -35px 0 35px;
+    }
+}

@@ -13,10 +13,10 @@ namespace Nano_Tech.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class nanotechfinalEntities : DbContext
+    public partial class nanotechfinalEntities1 : DbContext
     {
-        public nanotechfinalEntities()
-            : base("name=nanotechfinalEntities")
+        public nanotechfinalEntities1()
+            : base("name=nanotechfinalEntities1")
         {
         }
     
@@ -28,7 +28,7 @@ namespace Nano_Tech.Models
         public virtual DbSet<adminn> adminns { get; set; }
         public virtual DbSet<order> orders { get; set; }
         public virtual DbSet<product> products { get; set; }
-        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<user> users { get; set; }
+        public virtual DbSet<catagory> catagories { get; set; }
     }
 }

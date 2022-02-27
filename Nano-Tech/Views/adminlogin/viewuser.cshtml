@@ -1,4 +1,7 @@
-﻿@model Nano_Tech.Models.adminn
+﻿@model List<Nano_Tech.Models.user>
+@using Nano_Tech.Controllers
+
+
 @{
     Layout = null;
 }
@@ -10,9 +13,15 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="stylesheet" href="~/Content/admindashstyle.css">
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
 
-    <link rel="stylesheet" href="~/Content/admindashstyle.css">
+
+
+    <link href="~/Content/bootstrap-theme.css" rel="stylesheet" />
+
+
+
     <title>Admin panel</title>
 </head>
 
@@ -25,11 +34,12 @@
 
             @{
                 <div class="user">
-                    <button class="btn-danger" href="@Url.Action("Logout", "adminlogin")">LOGOUT</button>
-                </div>}
+                    <button class="btn-danger" onclick="location.href='@Url.Action("Logout", "adminlogin")'">LOGOUT</button>
+                </div>
+            }
         </div>
         @{
-            if (@Session["adname"].Equals("admin") )
+            if (@Session["adname"].Equals("admin"))
             {
                 <div class="sidebar">
                     <ul>
@@ -110,7 +120,39 @@
                 </div>
             }
         }
+        <div class="main">
+            <div class="charts">
+                <div class="chart">
 
+
+
+                    <table class="table-bordered">
+                        <tr>
+                            <th>UserName</th>
+                            <th>UserContact</th>
+                            <th>UserEmail</th>
+
+                            <th>Action</th>
+                        </tr>
+
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>@item.username</td>
+                                <td>@item.usercontact</td>
+                                <td>@item.useremail</td>
+
+                                <td>
+
+                                    <a href="@Url.Action("deleteuser",new {item.userid})" class="btn btn-danger">Delete</a>
+                                </td>
+                            </tr>
+                        }
+
+                    </table>
+                </div>
+            </div>
+        </div>
 
 
 </body>

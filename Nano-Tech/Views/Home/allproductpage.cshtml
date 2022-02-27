@@ -1,0 +1,39 @@
+﻿@model List<Nano_Tech.Models.product>
+@using Nano_Tech.Controllers
+@{
+    ViewBag.Title = "allproductpage";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<link href="~/Content/cardstyle.css" rel="stylesheet" />
+<h4 style="text-align:center;text-decoration:underline;">Allproductpage</h4>
+<div class="container">
+    <div class="row">
+        @foreach (var item in Model)
+        {@Html.HiddenFor(x => @item.proid)
+
+        <div class="col-md-3" style="padding-top:2rem; padding-bottom:1rem">
+            <div class="card">
+                <div class="imgBx">
+                    <img src="~/proimages/@item.proimage">
+                </div>
+                <div class="contentBx">
+                    <h6 style="color:darkturquoise;">@item.proname</h6>
+                    <div class="size">
+                        <p style="color:white;">@item.proprice</p>
+                    </div>
+                    <div class="color">
+                        <p style="color:white;">@item.prodesc</p>
+
+                    </div>
+                    <a href="#">Details</a>
+
+                </div>
+            </div>
+
+
+        </div>
+
+
+    }
+    </div>
+</div>

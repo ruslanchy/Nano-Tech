@@ -1,4 +1,5 @@
 ﻿@model Nano_Tech.Models.user
+
 @{
     Layout = null;
 }
@@ -20,10 +21,10 @@
 
 
                 <h5 style="color:red;">@ViewBag.msg</h5>
-                <label for="uname"><b>Username</b></label>
+                <label for="uname"><b>User-email</b></label>
                 @*<input type="text" placeholder="Enter Username" name="uname" required>*@
-                @Html.TextBoxFor(x => x.username, new { @class = "form-control", @placeholder = "User Name", @id = "Uname" })
-                <span style="color:red">@Html.ValidationMessageFor(x => x.username)</span>
+                @Html.TextBoxFor(x => x.useremail  , new { @class = "form-control", @placeholder = "User Email", @id = "Uname" })
+                <span style="color:red">@Html.ValidationMessageFor(x => x.useremail)</span>
 
                 <br />
                 <label for="psw"><b>Password</b></label>
@@ -40,6 +41,16 @@
 
                 <div class="form-group">
                     <p style="color:red">@ViewBag.error</p>
+                </div>
+                <br />
+                <div>
+                    @*<h5>Back to home</h5>*@
+                    <a href='@Url.Action("Index", "Home")'>Back to home</a>
+                </div>
+                <br />
+                <div>
+                    @*<h5>Back to home</h5>*@
+                    <a href='@Url.Action("signup", "signup")'>Signup here</a>
                 </div>
             </form>
         </div>

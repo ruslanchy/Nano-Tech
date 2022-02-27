@@ -1,0 +1,184 @@
+﻿@model Nano_Tech.Models.product
+@using Nano_Tech.Controllers
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+
+    <link rel="stylesheet" href="~/Content/admindashstyle.css">
+    <title>Admin panel</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="topbar">
+            <div class="logo">
+                <h3>Welcome @Session["adname"]</h3>
+            </div>
+
+            @{
+                <div class="user">
+                    <button class="btn-danger" onclick="location.href='@Url.Action("Logout", "adminlogin")'">LOGOUT</button>
+                </div>
+            }
+        </div>
+        @{
+            if (@Session["adname"].Equals("admin"))
+            {
+                <div class="sidebar">
+                    <ul>
+                        <li>
+                            <a href="#">
+                                <i class="fas fa-chart-bar"></i>
+                                <div>All Orders</div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="../adminlogin/addadmin">
+                                <i class="fas fa-user"></i>
+                                <div>Add Admin</div>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="../adminlogin/viewuser">
+                                <i class="fas fa-users"></i>
+                                <div>All User</div>
+                            </a>
+                        </li>
+
+
+                        <li>
+                            <a href="../adminlogin/addproduct">
+                                <i class="fas fa-cog"></i>
+                                <div>Add Product</div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="../adminlogin/viewproduct">
+                                <i class="fas fa-th-large"></i>
+                                <div>All products</div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            }
+            else
+            {
+                <div class="sidebar">
+                    <ul>
+                        <li>
+                            <a href="#">
+                                <i class="fas fa-chart-bar"></i>
+                                <div>All Orders</div>
+                            </a>
+                        </li>
+                        @*<li>
+                            <a href="../adminlogin/addadmin">
+                                <i class="fas fa-user"></i>
+                                <div>Add Admin</div>
+                            </a>
+                        </li>*@
+
+                        @*<li>
+                            <a href="#">
+                                <i class="fas fa-users"></i>
+                                <div>All User</div>
+                            </a>
+                        </li>*@
+
+
+                        <li>
+                            <a href="../adminlogin/addproduct">
+                                <i class="fas fa-cog"></i>
+                                <div>Add Product</div>htgr
+                            </a>
+                        </li>
+                        <li>
+                            <a href="../adminlogin/viewproduct">
+                                <i class="fas fa-th-large"></i>
+                                <div>All products</div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            }
+        }
+        <div class="main">
+            @using (Html.BeginForm("productadd", "adminlogin", FormMethod.Post, new { enctype = "multipart/form-data" }))
+            {
+                <div class="login">
+                    <form id="login" action="" method="post">
+
+                        <h5 style="color:red;">@ViewBag.msg</h5>
+                        <label for="uname"><b>Productname</b></label>
+                        @*<input type="text" placeholder="Enter Username" name="uname" required>*@
+                        @Html.TextBoxFor(x => x.proname, new { @class = "form-control", @placeholder = "Product Name", @id = "Uname" })
+                        <span style="color:red">@Html.ValidationMessageFor(x => x.proname)</span>
+
+
+                        <br />
+                        <!--<h5 style="color:red;">ViewBag.msg</h5>
+                    <label for="uname"><b>Productname</b></label>-->
+                        @*@<input type="text" placeholder="Enter Username" name="uname" required>*@
+                        <!--<input type="file" name="file" />
+                    <span style="color:red">Html.ValidationMessageFor(x => x.proimage)</span>
+                    <br />-->
+                        <h5 style="color:red;">@ViewBag.msg</h5>
+                        <label for="uname"><b>Productimage</b></label>
+                        @*<input type="text" placeholder="Enter Username" name="uname" required>*@
+                        @Html.TextBoxFor(x => x.proimage, new { @class = "form-control", @placeholder = "Product Image Address", @id = "Uname" })
+                        <span style="color:red">@Html.ValidationMessageFor(x => x.proimage)</span>
+                        <br />
+
+                        <h5 style="color:red;">@ViewBag.msg</h5>
+                        <label for="uname"><b>Productprice</b></label>
+                        @*<input type="text" placeholder="Enter Username" name="uname" required>*@
+                        @Html.TextBoxFor(x => x.proprice, new { @class = "form-control", @placeholder = "Product price", @id = "Uname" })
+                        <span style="color:red">@Html.ValidationMessageFor(x => x.proprice)</span>
+                        <br />
+
+                        <h5 style="color:red;">@ViewBag.msg</h5>
+                        <label for="uname"><b>Productdesc</b></label>
+                        @*<input type="text" placeholder="Enter Username" name="uname" required>*@
+                        @Html.TextBoxFor(x => x.prodesc, new { @class = "form-control", @placeholder = "Product Description", @id = "Uname" })
+                        <span style="color:red">@Html.ValidationMessageFor(x => x.prodesc)</span>
+                        <br />
+                        <h5 style="color:red;">@ViewBag.msg</h5>
+                        <label for="uname"><b>CAtid</b></label>
+                        @*<input type="text" placeholder="Enter Username" name="uname" required>*@
+                        @Html.TextBoxFor(x => x.catid, new { @class = "form-control", @placeholder = "Product catid", @id = "Uname" })
+                        <span style="color:red">@Html.ValidationMessageFor(x => x.catid)</span>
+                        <br />
+
+
+                        <div class="row">
+                            <input type="submit" value="Login" id="log" class="btn btn-success" />
+                        </div>
+
+
+                        <div class="form-group">
+                            <p style="color:red">@ViewBag.error</p>
+                        </div>
+                        <div>
+                            @*<h5>Back to home</h5>*@
+                            <a href='@Url.Action("Index", "Home")'>Back to home</a>
+                        </div>
+                    </form>
+                </div>}
+        </div>
+
+
+</body>
+
+</html>
+
