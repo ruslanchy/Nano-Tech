@@ -1,4 +1,5 @@
 ﻿@model Nano_Tech.Models.adminn
+    @using Nano_Tech.Controllers
 @{
     Layout = null;
 }
@@ -12,9 +13,13 @@
     <body>
         <h2>Admin Login</h2>
 
-
-        @using (Html.BeginForm())
-        {
+        @*@{ if (@Session["adname"] != null) {
+                <h2>Return to admindashboard</h2>
+                <a href='@Url.Action("admindash", "adminlogin", new {adname = @Session["adname"] })'>Admindash</a>
+            }
+            else {*@
+               @using (Html.BeginForm())
+                {
             <div class="login">
                 <form id="login" action="" method="post">
 
@@ -47,6 +52,8 @@
                     </div>
                 </form>
             </div>}
+                @*}
+            }*@
         <script src="~/Scripts/jquery.validate-vsdoc.js"></script>
         <script src="~/Scripts/jquery.validate.js"></script>
         <script src="~/Scripts/jquery.validate.min.js"></script>

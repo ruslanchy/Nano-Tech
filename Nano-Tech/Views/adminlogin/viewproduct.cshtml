@@ -129,16 +129,17 @@
                             <th>ProductDescription</th>
                             <th>Action</th>
                         </tr>
-
-                        @foreach (var item in Model)
+                        
+                        @foreach (var item in Model) 
                         {
                             <tr>
+                                <tf>@item.proid</tf>
                                 <td>@item.proname</td>
                                 <td>@item.proimage</td>
                                 <td>@item.proprice</td>
                                 <td>@item.prodesc</td>
                                 <td>
-                                    <a href="@Url.Action("editproduct", new {item.proname,item.proimage,item.proprice,item.prodesc})" class="btn btn-success">Edit</a>
+                                    <a href="@Url.Action("editproduct", new {item.proid,item.proname,item.proimage,item.proprice,item.prodesc})" class="btn btn-success">Edit</a>
                                     <a href="@Url.Action("deleteproduct",new {item.proid})" class="btn btn-danger">Delete</a>
                                 </td>
                             </tr>

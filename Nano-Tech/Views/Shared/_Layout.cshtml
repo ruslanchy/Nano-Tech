@@ -62,9 +62,9 @@
                           Hello,@Session["useremail"]
                       </a>
                       <div class="dropdown-menu dropdown-menu-lg-right" aria-labelledby="navbarDropdown">
-                          <a class="dropdown-item" href = "@Url.Action("profileedit", "profileedit", new {username =@Session["useremail"] })">Profile</a>
+                          <a class="dropdown-item" href = "@Url.Action("userdash", "login", new {useremail =@Session["useremail"] })">Profile</a>
                           <a class="dropdown-item" onclick="#">Orders</a>
-                          <a class="dropdown-item" href="@Url.Action("Logout", "login")">Logout</a>
+                          <a class="dropdown-item" href="@Url.Action("UserLogout", "login")">Logout</a>
                       </div>
 
                   </li>

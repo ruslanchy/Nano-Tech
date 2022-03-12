@@ -1,0 +1,101 @@
+﻿@model List<Nano_Tech.Models.user>
+@using Nano_Tech.Controllers
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+
+    <link rel="stylesheet" href="~/Content/admindashstyle.css">
+    <title>Admin panel</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="topbar">
+            <div class="logo">
+                <h3>Welcome @Session["useremail"]</h3>
+            </div>
+
+
+            <div class="user">
+                <button class="btn-danger" onclick="location.href='@Url.Action("Index", "Home")'">Home</button>
+            </div>
+        </div>
+        @{
+            if (@Session["useremail"] != null)
+            {
+                <div class="sidebar">
+                    <ul>
+                        <li>
+                            <a href="#">
+                                <i class="fas fa-chart-bar"></i>
+                                <div>My Orders</div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="../login/viewprofile">
+                                <i class="fas fa-user"></i>
+                                <div>Edit profile</div>
+                            </a>
+                        </li>
+                </div>
+
+            }
+            else
+            {
+
+            }
+        }
+
+
+        <div class="main">
+            <div class="charts">
+                <div class="chart">
+
+
+
+                    <table class="table-bordered">
+                        <tr>
+                            <th>Userid</th>
+                            <th>Username</th>
+                            <th>Userpass</th>
+                            <th>USercontact</th>
+                            <th>Useremail</th>
+                            <th>Action</th>
+                        </tr>
+
+                        @foreach (var item in Model) { 
+                            if (@item.useremail.Equals(@Session["useremail"]))
+                            
+                                {
+                            <tr>
+                                <td>@item.userid</td>
+                                <td>@item.username</td>
+                                <td>@item.userpass</td>
+                                <td>@item.usercontact</td>
+                                <td>@item.useremail</td>
+                                <td>
+                                    <a href="@Url.Action("editprofile","login", new {item.userid,item.username,item.userpass,item.usercontact,item.useremail})" class="btn btn-success">Edit</a>
+                                    
+                                </td>
+                            </tr>
+                                }
+                            }
+
+                    </table>
+                </div>
+            </div>
+        </div>
+
+</body>
+
+</html>

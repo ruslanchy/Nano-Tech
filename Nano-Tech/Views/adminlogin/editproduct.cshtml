@@ -118,7 +118,11 @@
             {
                 <div class="login">
                     <form id="login" action="" method="post">
-                        @Html.HiddenFor(x => x.proid)
+                        @*<label for="proid"><b>Productprice</b></label>*@
+                        @*<input type="text" placeholder="Enter Username" name="uname" required>*@
+                        @Html.HiddenFor(x => x.proid, new { @class = "form-control", @placeholder = "Admin Name", @id = "Uname" })
+                       
+                        <br/>
                         <h5 style="color:red;">@ViewBag.msg</h5>
                         <label for="uname"><b>Productname</b></label>
                         @*<input type="text" placeholder="Enter Username" name="uname" required>*@

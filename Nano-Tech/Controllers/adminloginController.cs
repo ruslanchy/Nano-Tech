@@ -42,7 +42,7 @@ namespace Nano_Tech.Controllers
         {
             return View();
         }
-        public ActionResult Logout()
+        public ActionResult AdminLogout()
         {
             Session.Clear();
             return RedirectToAction("Index", "Home");
@@ -131,10 +131,16 @@ namespace Nano_Tech.Controllers
             //int proidxyz = pro2.proid;
             string mainconn = ConfigurationManager.ConnectionStrings["myconnection"].ConnectionString;
             SqlConnection sqlconn = new SqlConnection(mainconn);
-            string sqlquery = "update [dbo].[product] set proname=@proname ,proimage =@proimage ,proprice = @proprice , prodesc =@prodesc where proname=@proname ";
+            //string sqlquery1 = "SELECT * from [dbo].[product] where proname=@proname ";
+            //SqlCommand sqlcomm1 = new SqlCommand(sqlquery1, sqlconn);
+            //sqlconn.Open();
+
+            //var proid = pro2.proid.ToString();
+            //sqlconn.Close();
+            string sqlquery = "update [dbo].[product] set proname=@proname ,proimage =@proimage ,proprice = @proprice , prodesc =@prodesc where proid=@proid ";
             SqlCommand sqlcomm = new SqlCommand(sqlquery, sqlconn);
             sqlconn.Open();
-            
+            sqlcomm.Parameters.AddWithValue("@proid", pro2.proid);
             sqlcomm.Parameters.AddWithValue("@proname", pro2.proname);
             if (file != null && file.ContentLength > 0)
             {
@@ -142,7 +148,7 @@ namespace Nano_Tech.Controllers
                 string imgpath = Path.Combine(Server.MapPath("~/productimages/"), filename);
                 file.SaveAs(imgpath);
             }
-            sqlcomm.Parameters.AddWithValue("@proimage", "~/productimages/" + file.FileName);
+            sqlcomm.Parameters.AddWithValue("@proimage", "~/productimages/");
             sqlcomm.Parameters.AddWithValue("@proprice", pro2.proprice);
             sqlcomm.Parameters.AddWithValue("@prodesc", pro2.prodesc);
 

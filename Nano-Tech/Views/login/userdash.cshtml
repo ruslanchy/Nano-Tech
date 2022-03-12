@@ -1,4 +1,5 @@
-﻿@model Nano_Tech.Controllers.loginController
+﻿@model Nano_Tech.Models.user
+@using Nano_Tech.Controllers
 
 @{
     Layout = null;
@@ -24,46 +25,40 @@
                 <h3>Welcome @Session["useremail"]</h3>
             </div>
 
-            @{
+            
                 <div class="user">
-                    <button class="btn-danger" onclick="location.href='@Url.Action("Logout", "adminlogin")'">LOGOUT</button>
+                    <button class="btn-danger" onclick="location.href='@Url.Action("Index", "Home")'">Home</button>
                 </div>
-            }
         </div>
         @{
-            if (@Session["useremail"]!=null)
+            if (@Session["useremail"]!= null)
             {
                 <div class="sidebar">
                     <ul>
                         <li>
                             <a href="#">
                                 <i class="fas fa-chart-bar"></i>
-                                <div>My orders</div>
+                                <div>My Orders</div>
                             </a>
                         </li>
                         <li>
-                            <a href="#">
+                            <a href="../login/viewprofile">
                                 <i class="fas fa-user"></i>
                                 <div>Edit profile</div>
                             </a>
                         </li>
-
-                      
-                    </ul>
-                </div>
+                        </div>
+                       
             }
             else
             {
-               
+                
             }
         }
-        <div class="main">
-           
-        </div>
+
+
 
 
 </body>
 
 </html>
-
-

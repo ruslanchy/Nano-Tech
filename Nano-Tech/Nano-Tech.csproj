@@ -321,6 +321,9 @@
     <Content Include="Views\adminlogin\viewuser.cshtml" />
     <Content Include="Views\adminlogin\editproduct.cshtml" />
     <Content Include="Views\Home\allproductpage.cshtml" />
+    <Content Include="Views\login\userdash.cshtml" />
+    <Content Include="Views\login\viewprofile.cshtml" />
+    <Content Include="Views\login\editprofile.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
